@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-Config
+spec:
+ containers:
+ - name: nginx
+   image: nginx
+   envFrom:
+   - ConfigMapRef:
+      name: daws78s
+   
+
+   
