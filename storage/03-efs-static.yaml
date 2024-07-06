@@ -43,4 +43,17 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: efs-static-claim      
+      claimName: efs-static-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: efs-static
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: efs-static
+  ports:
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 80            
